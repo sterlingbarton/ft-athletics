@@ -1,5 +1,6 @@
 import { SVGProps } from 'react';
 import { Logo } from '@/components/Logo';
+import Link from 'next/link';
 
 const footerNavigation = {
   main: [
@@ -81,7 +82,9 @@ export function Footer() {
         className="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12"
         aria-label="Footer"
       >
-        <Logo className="mx-auto h-10 w-auto" />
+        <Link href="/" aria-label="Home">
+          <Logo className="mx-auto h-10 w-auto" />
+        </Link>
         {footerNavigation.main.map((item) => (
           <div key={item.name} className="pb-6">
             <a

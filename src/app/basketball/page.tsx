@@ -1,16 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 
-import { JSX, SVGProps, useState } from 'react';
-import { Dialog } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-
-const navigation = [
-  { name: 'Product', href: '/home' },
-  { name: 'Features', href: '/home' },
-  { name: 'Resources', href: '/home' },
-  { name: 'Company', href: '/home' },
-];
 const stats = [
   { label: 'Transactions every 24 hours', value: '44 million' },
   { label: 'Assets under holding', value: '$119 trillion' },
@@ -78,8 +68,6 @@ const blogPosts = [
 ];
 
 export default function Example() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   return (
     <div className="bg-white">
       <main className="isolate">
