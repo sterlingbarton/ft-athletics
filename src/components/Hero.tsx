@@ -25,13 +25,8 @@ export function Hero() {
         where collegiate athletes are made.
       </p>
       <div className="mt-10 flex justify-center gap-x-6">
-        <Button href="/about">About Us</Button>
-        <Button
-          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-          variant="outline"
-        >
-          Teams
-        </Button>
+        <Button href="/volleyball">Volleyball</Button>
+        <Button href="/basketball">Basketball</Button>
       </div>
     </Container>
   );

@@ -10,6 +10,14 @@ import { Container } from '@/components/Container';
 import { Logo } from '@/components/Logo';
 import { NavLink } from '@/components/NavLink';
 
+const headerNavigation = {
+  main: [
+    { name: 'About Us', href: '/about' },
+    { name: 'Volleyball', href: '/volleyball' },
+    { name: 'Basketball', href: '/basketball' },
+  ],
+};
+
 function MobileNavLink({
   href,
   children,
@@ -107,9 +115,11 @@ export function Header() {
               <Logo className="h-10 w-auto" />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
-              <NavLink href="/about">About Us</NavLink>
-              <NavLink href="/volleyball">Volleyball</NavLink>
-              <NavLink href="/basketball">Basketball</NavLink>
+              {headerNavigation.main.map((item) => (
+                <div key={item.name} className="pb-6">
+                  <NavLink href={item.href}>{item.name}</NavLink>
+                </div>
+              ))}
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
