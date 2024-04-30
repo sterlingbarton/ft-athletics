@@ -8,11 +8,10 @@ import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - TaxPal',
-    default: 'TaxPal - Accounting made simple for small businesses',
+    template: '%s - First Triumph Athletics',
+    default: 'First Triumph Athletics',
   },
-  description:
-    'Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.',
+  description: 'First Triumph Athletics',
 };
 
 const inter = Inter({
