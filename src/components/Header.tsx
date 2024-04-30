@@ -106,12 +106,13 @@ export function Header() {
               <Logo className="h-10 w-auto" />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
-              <NavLink href="#features">About Us</NavLink>
-              <NavLink href="#testimonials">Teams</NavLink>
+              <NavLink href="/about">About Us</NavLink>
+              <NavLink href="/volleyball">Volleyball</NavLink>
+              <NavLink href="/basketball">Basketball</NavLink>
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
-            <Button href="/register" color="blue">
+            <Button href="/" color="blue">
               <span>Contact Us</span>
             </Button>
             <div className="-mr-1 md:hidden">
