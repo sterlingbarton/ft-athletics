@@ -34,12 +34,20 @@ export function Hero() {
         alt="Background"
         className="z-0"
         style={{
-          borderRadius: "0 0 80px 0",
+          borderRadius: "0 0 11.6% 0",
           backgroundColor: "white",
-          paddingRight: 30,
+          paddingRight: 50,
         }}
       />
-      <div className="absolute inset-0  z-10" />{" "}
+      <div
+        className="absolute inset-0 bg-black opacity-50 z-10"
+        style={{
+          borderRadius: "0 0 10% 0",
+          height: "100%",
+          width: "calc(100vw - 65px)",
+          right: 0,
+        }}
+      />{" "}
       {/* Black transparent overlay */}
       <Container className="pb-16 text-center lg:pt-32 z-20 relative">
         <Box

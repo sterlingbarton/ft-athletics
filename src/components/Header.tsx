@@ -15,6 +15,8 @@ const headerNavigation = {
     { name: "About Us", href: "/about" },
     { name: "Volleyball", href: "/volleyball" },
     { name: "Basketball", href: "/basketball" },
+    { name: "Cheer", href: "/cheer" },
+    { name: "Dance", href: "/dance" },
   ],
 };
 
@@ -96,6 +98,8 @@ function MobileNavigation() {
             <MobileNavLink href="/about">About Us</MobileNavLink>
             <MobileNavLink href="/volleyball">Volleyball</MobileNavLink>
             <MobileNavLink href="/basketball">Basketball</MobileNavLink>
+            <MobileNavLink href="/cheer">Cheer</MobileNavLink>
+            <MobileNavLink href="/dance">Dance</MobileNavLink>
             <hr className="m-2 border-slate-300/40" />
             <MobileNavLink href="/contact">Contact Us</MobileNavLink>
           </Popover.Panel>
@@ -123,7 +127,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 py-0  mx-60 transition-colors duration-300 bg-white shadow-md`}
+      className={`fixed top-0 left-0 right-0 z-50 py-0  mx-40 transition-colors duration-300 ${!isScrolled ? "bg-transparent" : "bg-white shadow-md"}`}
       style={{
         borderRadius: "0 0 40px 40px",
       }}
@@ -151,14 +155,22 @@ export function Header() {
             <div className="hidden md:flex md:gap-x-6 align-baseline">
               {headerNavigation.main.map((item) => (
                 <div key={item.name}>
-                  <NavLink href={item.href}>{item.name}</NavLink>
+                  <NavLink href={item.href} isScrolled={isScrolled}>
+                    {item.name}
+                  </NavLink>
                 </div>
               ))}
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
-            <Button href="/contact" variant="text">
-              <span>Contact Us</span>
+            <Button
+              href="/contact"
+              variant="contained"
+              sx={{
+                backgroundColor: "#F28907",
+              }}
+            >
+              Contact
             </Button>
             <div className="-mr-1 md:hidden">
               <MobileNavigation />
