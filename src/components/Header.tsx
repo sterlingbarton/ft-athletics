@@ -1,20 +1,20 @@
-'use client';
+"use client";
+import { useState, useEffect } from "react";
+import { Fragment } from "react";
+import Link from "next/link";
+import { Popover, Transition } from "@headlessui/react";
+import clsx from "clsx";
 
-import { Fragment } from 'react';
-import Link from 'next/link';
-import { Popover, Transition } from '@headlessui/react';
-import clsx from 'clsx';
-
-import { Button } from '@/components/Button';
-import { Container } from '@/components/Container';
-import { Logo } from '@/components/Logo';
-import { NavLink } from '@/components/NavLink';
+import { Container } from "@/components/Container";
+import { Logo } from "@/components/Logo";
+import { NavLink } from "@/components/NavLink";
+import { Box, Button, Typography } from "@mui/material";
 
 const headerNavigation = {
   main: [
-    { name: 'About Us', href: '/about' },
-    { name: 'Volleyball', href: '/volleyball' },
-    { name: 'Basketball', href: '/basketball' },
+    { name: "About Us", href: "/about" },
+    { name: "Volleyball", href: "/volleyball" },
+    { name: "Basketball", href: "/basketball" },
   ],
 };
 
@@ -44,15 +44,15 @@ function MobileNavIcon({ open }: { open: boolean }) {
       <path
         d="M0 1H14M0 7H14M0 13H14"
         className={clsx(
-          'origin-center transition',
-          open && 'scale-90 opacity-0'
+          "origin-center transition",
+          open && "scale-90 opacity-0"
         )}
       />
       <path
         d="M2 2L12 12M12 2L2 12"
         className={clsx(
-          'origin-center transition',
-          !open && 'scale-90 opacity-0'
+          "origin-center transition",
+          !open && "scale-90 opacity-0"
         )}
       />
     </svg>
@@ -106,24 +106,58 @@ function MobileNavigation() {
 }
 
 export function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isTop = window.scrollY < 50;
+      setIsScrolled(!isTop);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="py-10">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 py-0  mx-60 transition-colors duration-300 bg-white shadow-md`}
+      style={{
+        borderRadius: "0 0 40px 40px",
+      }}
+    >
+      <Box
+        sx={{
+          display: {
+            sm: "none",
+          },
+          width: "100%",
+          backgroundColor: "#0D7369",
+          p: 1,
+        }}
+      >
+        <Typography textAlign="center" variant="h6" color="white" fontSize={16}>
+          Click here to purchase
+        </Typography>
+      </Box>
       <Container>
-        <nav className="relative z-50 flex justify-between">
+        <nav className="relative flex justify-between  px-5 py-3">
           <div className="flex items-center md:gap-x-12">
             <Link href="/" aria-label="Home">
               <Logo className="h-10 w-auto" />
             </Link>
-            <div className="hidden md:flex md:gap-x-6">
+            <div className="hidden md:flex md:gap-x-6 align-baseline">
               {headerNavigation.main.map((item) => (
-                <div key={item.name} className="pb-6">
+                <div key={item.name}>
                   <NavLink href={item.href}>{item.name}</NavLink>
                 </div>
               ))}
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
-            <Button href="/contact" color="blue">
+            <Button href="/contact" variant="text">
               <span>Contact Us</span>
             </Button>
             <div className="-mr-1 md:hidden">
