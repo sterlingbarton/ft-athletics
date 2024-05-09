@@ -17,7 +17,6 @@ export function Hero() {
 
     return () => clearInterval(intervalId); // Cleanup the interval on component unmount
   }, []);
-
   return (
     <Box
       className="relative"
