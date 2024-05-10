@@ -1,22 +1,22 @@
-"use client";
-import { useState, useEffect } from "react";
-import { Fragment } from "react";
-import Link from "next/link";
-import { Popover, Transition } from "@headlessui/react";
-import clsx from "clsx";
-
-import { Container } from "@/components/Container";
-import { Logo } from "@/components/Logo";
-import { NavLink } from "@/components/NavLink";
-import { Box, Button, Typography } from "@mui/material";
+'use client';
+import { useState, useEffect } from 'react';
+import { Fragment } from 'react';
+import Link from 'next/link';
+import { Popover, Transition } from '@headlessui/react';
+import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
+import { Container } from '@/components/Container';
+import { Logo } from '@/components/Logo';
+import { NavLink } from '@/components/NavLink';
+import { Box, Button, Typography } from '@mui/material';
 
 const headerNavigation = {
   main: [
-    { name: "About Us", href: "/about" },
-    { name: "Volleyball", href: "/volleyball" },
-    { name: "Basketball", href: "/basketball" },
-    { name: "Cheer", href: "/cheer" },
-    { name: "Dance", href: "/dance" },
+    { name: 'About Us', href: '/about' },
+    { name: 'Volleyball', href: '/volleyball' },
+    { name: 'Basketball', href: '/basketball' },
+    { name: 'Cheer', href: '/cheer' },
+    { name: 'Dance', href: '/dance' },
   ],
 };
 
@@ -46,15 +46,15 @@ function MobileNavIcon({ open }: { open: boolean }) {
       <path
         d="M0 1H14M0 7H14M0 13H14"
         className={clsx(
-          "origin-center transition",
-          open && "scale-90 opacity-0"
+          'origin-center transition',
+          open && 'scale-90 opacity-0'
         )}
       />
       <path
         d="M2 2L12 12M12 2L2 12"
         className={clsx(
-          "origin-center transition",
-          !open && "scale-90 opacity-0"
+          'origin-center transition',
+          !open && 'scale-90 opacity-0'
         )}
       />
     </svg>
@@ -111,6 +111,8 @@ function MobileNavigation() {
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const path = usePathname();
+  const isContactPage = path === '/contact';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -118,27 +120,27 @@ export function Header() {
       setIsScrolled(!isTop);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 py-0  mx-40 transition-colors duration-300 ${!isScrolled ? "bg-transparent" : "bg-white shadow-md"}`}
+      className={`fixed top-0 left-0 right-0 z-50 py-0  mx-40 transition-colors duration-300 ${!isScrolled ? 'bg-transparent' : 'bg-white shadow-md'}`}
       style={{
-        borderRadius: "0 0 40px 40px",
+        borderRadius: '0 0 40px 40px',
       }}
     >
       <Box
         sx={{
           display: {
-            sm: "none",
+            sm: 'none',
           },
-          width: "100%",
-          backgroundColor: "#0D7369",
+          width: '100%',
+          backgroundColor: '#0D7369',
           p: 1,
         }}
       >
@@ -162,20 +164,22 @@ export function Header() {
               ))}
             </div>
           </div>
-          <div className="flex items-center gap-x-5 md:gap-x-8">
-            <Button
-              href="/contact"
-              variant="contained"
-              sx={{
-                backgroundColor: "#F28907",
-              }}
-            >
-              Contact
-            </Button>
-            <div className="-mr-1 md:hidden">
-              <MobileNavigation />
+          {!isContactPage && (
+            <div className="flex items-center gap-x-5 md:gap-x-8">
+              <Button
+                href="/contact"
+                variant="contained"
+                sx={{
+                  backgroundColor: '#F28907',
+                }}
+              >
+                Contact
+              </Button>
+              <div className="-mr-1 md:hidden">
+                <MobileNavigation />
+              </div>
             </div>
-          </div>
+          )}
         </nav>
       </Container>
     </header>
