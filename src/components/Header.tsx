@@ -9,7 +9,6 @@ import { Container } from '@/components/Container';
 import { Logo } from '@/components/Logo';
 import { NavLink } from '@/components/NavLink';
 import { Button } from '@/components/Button';
-import { Box, Typography } from '@mui/material';
 
 const headerNavigation = {
   main: [
