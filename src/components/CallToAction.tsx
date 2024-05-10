@@ -27,7 +27,12 @@ export function CallToAction() {
             Ready to take your athletic talents to the next level? Join First
             Triumph Athletic Club today and start your journey to greatness.
           </p>
-          <Button href="/register" color="white" className="mt-10">
+          <Button
+            href="/register"
+            color="orange"
+            variant="solid"
+            className="mt-10"
+          >
             Sign Up
           </Button>
         </div>

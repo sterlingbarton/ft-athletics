@@ -17,11 +17,25 @@ const config: Config = {
         transparent: 'transparent',
         white: '#ffffff',
         black: '#000000',
-        green: '#0e7c7b',
-        orange: '#f28908',
+        green: {
+          100: '#13ACA9',
+          500: '#109492',
+          900: '#0e7c7b',
+        },
+        orange: {
+          100: '#fcd9ae',
+          200: '#fcd09b',
+          300: '#fcd888',
+          400: '#fabf75',
+          500: '#fab662',
+          600: '#f9ad4f',
+          700: '#f9a43c',
+          800: '#f89b29',
+          900: '#f28908',
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };
 export default config;
