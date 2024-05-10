@@ -8,7 +8,8 @@ import { usePathname } from 'next/navigation';
 import { Container } from '@/components/Container';
 import { Logo } from '@/components/Logo';
 import { NavLink } from '@/components/NavLink';
-import { Box, Button, Typography } from '@mui/material';
+import { Button } from '@/components/Button';
+import { Box, Typography } from '@mui/material';
 
 const headerNavigation = {
   main: [
@@ -129,27 +130,10 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 py-0  mx-40 transition-colors duration-300 ${!isScrolled ? 'bg-transparent' : 'bg-white shadow-md'}`}
-      style={{
-        borderRadius: '0 0 40px 40px',
-      }}
+      className={`fixed top-0 left-0 right-0 z-50 py-0 sm:mx-15 md:mx-20 lg:mx-40 xl:mx-60 transition-colors duration-300 md:rounded-br-3xl md:rounded-bl-3xl ${!isScrolled ? 'bg-transparent' : 'bg-white shadow-md'}`}
     >
-      <Box
-        sx={{
-          display: {
-            sm: 'none',
-          },
-          width: '100%',
-          backgroundColor: '#0D7369',
-          p: 1,
-        }}
-      >
-        <Typography textAlign="center" variant="h6" color="white" fontSize={16}>
-          Click here to purchase
-        </Typography>
-      </Box>
       <Container>
-        <nav className="relative flex justify-between  px-5 py-3">
+        <nav className="relative flex justify-between px-5 py-3">
           <div className="flex items-center md:gap-x-12">
             <Link href="/" aria-label="Home">
               <Logo className="h-10 w-auto" />
@@ -168,10 +152,9 @@ export function Header() {
             <div className="flex items-center gap-x-5 md:gap-x-8">
               <Button
                 href="/contact"
-                variant="contained"
-                sx={{
-                  backgroundColor: '#F28907',
-                }}
+                variant="solid"
+                color="orange"
+                className="rounded-md"
               >
                 Contact
               </Button>
