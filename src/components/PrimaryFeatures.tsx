@@ -68,12 +68,12 @@ export function PrimaryFeatures() {
                   </p>
                   <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none mt-4">
                     <p className="text-lg font-semibold tracking-tight text-transparent">
-                      {feature.description}
-                    </p>
-                    <p className="flex-none text-3xl font-bold tracking-tight text-white text-center">
                       {feature.title}
                     </p>
                   </div>
+                  <p className="flex-none text-3xl font-bold tracking-tight text-white text-center">
+                    {feature.title}
+                  </p>
                 </div>
               </div>
             </Link>
