@@ -122,7 +122,7 @@ export function Pricing() {
         <div className="md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
             <span className="relative whitespace-nowrap">
-              <SwirlyDoodle className="absolute left-0 top-1/2 h-[1em] w-full fill-blue-400" />
+              <SwirlyDoodle className="absolute left-0 top-3/4 h-[1em] w-full fill-green-500" />
               <span className="relative">Simple pricing,</span>
             </span>{' '}
             for everyone.
@@ -134,8 +134,8 @@ export function Pricing() {
         </div>
         <div className="-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8">
           <Plan
-            name="Starter"
-            price="$9"
+            name="Basketball"
+            price="$150/month"
             description="Good for anyone who is self-employed and just getting started."
             href="/register"
             features={[
@@ -148,7 +148,7 @@ export function Pricing() {
           />
           <Plan
             featured
-            name="Small business"
+            name="Volleyball"
             price="$15"
             description="Perfect for small / medium sized businesses."
             href="/register"
@@ -162,8 +162,8 @@ export function Pricing() {
               'Track in multiple currencies',
             ]}
           />
-          <Plan
-            name="Enterprise"
+          {/* <Plan
+            name="Cheer"
             price="$39"
             description="For even the biggest enterprise companies."
             href="/register"
@@ -175,6 +175,19 @@ export function Pricing() {
               'Export up to 25 reports, including TPS',
             ]}
           />
+          <Plan
+            name="Dance"
+            price="$39"
+            description="For even the biggest enterprise companies."
+            href="/register"
+            features={[
+              'Send unlimited quotes and invoices',
+              'Connect up to 15 bank accounts',
+              'Track up to 200 expenses per month',
+              'Automated payroll support',
+              'Export up to 25 reports, including TPS',
+            ]}
+          /> */}
         </div>
       </Container>
     </section>

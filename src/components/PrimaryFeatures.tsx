@@ -3,7 +3,7 @@ import volleyballImg from '@/images/vball-1.jpeg';
 import basketballImg from '@/images/bball-1.jpeg';
 import cheerImg from '@/images/cheer.jpg';
 import danceImg from '@/images/dance.jpg';
-import { Button, Link } from '@mui/material';
+import Link from 'next/link';
 
 const features = [
   {
@@ -49,7 +49,7 @@ export function PrimaryFeatures() {
             <Link
               key={feature.title}
               href={feature.url}
-              sx={{ textDecoration: 'none' }}
+              // className="no-underline"
             >
               <div
                 className="relative flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-cover bg-center p-8 sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-sm lg:flex-auto lg:flex-col lg:items-start lg:gap-y-44 text-center align-middle h-80"
