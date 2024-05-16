@@ -1,29 +1,30 @@
-import { Container } from '@/components/Container';
-import screenshotExpenses from '@/images/screenshots/expenses.png';
-import screenshotPayroll from '@/images/screenshots/payroll.png';
-import screenshotReporting from '@/images/screenshots/reporting.png';
-import screenshotVatReturns from '@/images/screenshots/vat-returns.png';
+import { Container } from "@/components/Container";
+import volleyballImg from "@/images/vball-1.jpeg";
+import basketballImg from "@/images/bball-1.jpeg";
+import cheerImg from "@/images/cheer.jpg";
+import danceImg from "@/images/dance.jpg";
+import { Button, Link } from "@mui/material";
 
 const features = [
   {
-    title: 'Volleyball',
-    description: 'Expert coaching, competitive play, and skill development',
-    image: screenshotPayroll,
+    title: "Volleyball",
+    url: "/volleyball",
+    image: volleyballImg,
   },
   {
-    title: 'Basketball',
-    description: 'Expert coaching, competitive play, and skill development',
-    image: screenshotExpenses,
+    title: "Basketball",
+    url: "/basketball",
+    image: basketballImg,
   },
   {
-    title: 'Cheer',
-    description: 'Expert coaching, competitive play, and skill development',
-    image: screenshotVatReturns,
+    title: "Cheer",
+    url: "/cheer",
+    image: cheerImg,
   },
   {
-    title: 'Dance',
-    description: 'Expert coaching, competitive play, and skill development',
-    image: screenshotReporting,
+    title: "Dance",
+    url: "/dance",
+    image: danceImg,
   },
 ];
 
@@ -36,23 +37,46 @@ export function PrimaryFeatures() {
     >
       <Container className="relative">
         <div>
-          <p className="mt-2 ml-4 mb-2 text-3xl tracking-tight text-green-900 sm:text-4xl">
-            Our Athletic Programs
+          <p className="mt-2 ml-4 font-semibold mb-2 text-6xl tracking-tight text-green-900 sm:text-6xl">
+            Athletic Programs
+          </p>
+          <p className="mt-2 ml-4 mb-2 text-1xl tracking-tight text-black sm:text-1xl">
+            First Triumph Athletics sport offerings
           </p>
         </div>
-        <dl className="mx-auto grid grid-cols-1 gap-px bg-gray-900/5 sm:grid-cols-2 lg:grid-cols-4">
+        <dl className="mx-auto mt-10 grid grid-cols-1 gap-8 bg-gray-900/5 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature) => (
-            <div
+            <Link
               key={feature.title}
-              className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-10 sm:px-6 xl:px-8"
+              href={feature.url}
+              sx={{ textDecoration: "none" }}
             >
-              <dd className="w-full flex-none text-3xl font-medium leading-10 tracking-tight text-gray-900">
-                {feature.title}
-              </dd>
-              <dd className="text-sm font-medium text-gray-700">
-                {feature.description}
-              </dd>
-            </div>
+              <div
+                className="relative flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-cover bg-center p-8 sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-sm lg:flex-auto lg:flex-col lg:items-start lg:gap-y-44 text-center align-middle h-80"
+                style={{ backgroundImage: `url(${feature.image.src})` }}
+              >
+                <div className="absolute inset-0 bg-black opacity-50 rounded-2xl"></div>
+                <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
+                  <p className="flex-none text-3xl font-bold tracking-tight text-transparent text-center">
+                    {feature.title}
+                  </p>
+                  <p className="flex-none text-3xl font-bold tracking-tight text-transparent text-center">
+                    {feature.title}
+                  </p>
+                  <p className="flex-none text-3xl font-bold tracking-tight text-transparent text-center">
+                    {feature.title}
+                  </p>
+                  <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none mt-4">
+                    <p className="text-lg font-semibold tracking-tight text-transparent">
+                      {feature.description}
+                    </p>
+                    <p className="flex-none text-3xl font-bold tracking-tight text-white text-center">
+                      {feature.title}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Link>
           ))}
         </dl>
       </Container>
