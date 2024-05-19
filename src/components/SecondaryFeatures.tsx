@@ -3,6 +3,7 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
 import { Container } from "@/components/Container";
+import { Box } from "@mui/material";
 
 const months = [
   {
@@ -113,7 +114,13 @@ export default function SecondaryFeatures() {
       className="pb-14 pt-20 sm:pb-20 sm:pt-32 lg:pb-32"
     >
       <Container>
-        <div className="mx-auto max-w-2xl md:text-center"></div>
+        <Box my={2} mb={6}>
+          <p className="mt-2 ml-4 font-semibold mb-2 text-6xl tracking-tight text-teal-600 sm:text-6xl">
+            Schedule
+          </p>
+        </Box>
+
+        <div className="mt-1 mx-auto max-w-2xl md:text-center"></div>
         <div className="relative grid grid-cols-1 gap-x-14 md:grid-cols-2">
           <button
             type="button"

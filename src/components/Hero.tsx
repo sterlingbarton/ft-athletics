@@ -1,12 +1,12 @@
-'use client';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { Box } from '@mui/material/';
-import { Button } from '@/components/Button';
-import { Container } from '@/components/Container';
+"use client";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Box } from "@mui/material/";
+import { Button } from "@/components/Button";
+import { Container } from "@/components/Container";
 
 export function Hero() {
-  const images = ['/hero-1.png', '/hero-2.png', '/hero-3.png'];
+  const images = ["/hero-1.png", "/hero-2.png", "/hero-3.png"];
 
   const [currentImage, setCurrentImage] = useState(0);
 
@@ -21,8 +21,8 @@ export function Hero() {
     <Box
       className="relative"
       sx={{
-        height: '90vh',
-        backgroundColor: 'white',
+        height: { xs: "60vh", md: "90vh" },
+        backgroundColor: "white",
       }}
     >
       <Image
@@ -31,32 +31,32 @@ export function Hero() {
         objectFit="cover"
         quality={100}
         alt="Background"
-        className="z-0"
+        className="z-0 sm:pr-12"
         style={{
-          borderRadius: '0 0 11.6% 0',
-          backgroundColor: 'white',
-          paddingRight: 50,
+          borderRadius: "0 0 11.6% 0",
+          backgroundColor: "white",
+          //paddingRight: 50,
         }}
       />
-      <div
+      <Box
         className="absolute inset-0 bg-black opacity-50 z-10"
-        style={{
-          borderRadius: '0 0 10% 0',
-          height: '100%',
-          width: 'calc(100vw - 65px)',
+        sx={{
+          borderRadius: "0 0 10% 0",
+          height: "100%",
+          width: { sm: "calc(100vw - 48px)", lg: "calc(100vw - 62px)" },
           right: 0,
         }}
-      />{' '}
+      />
       {/* Black transparent overlay */}
       <Container className="pb-16 text-center lg:pt-32 z-20 relative">
         <Box
           sx={{
             mt: 15,
             flex: 1,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'fle-start',
-            flexDirection: 'column',
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "fle-start",
+            flexDirection: "column",
           }}
         >
           <h1 className="text-left font-display text-7xl font-medium tracking-tight text-white sm:text-7xl">
