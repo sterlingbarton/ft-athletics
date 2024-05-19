@@ -37,7 +37,7 @@ export function PrimaryFeatures() {
     >
       <Container className="relative">
         <div>
-          <p className="mt-2 ml-4 font-semibold mb-2 text-6xl tracking-tight text-green-900 sm:text-6xl">
+          <p className="mt-2 ml-4 font-semibold mb-2 text-6xl tracking-tight text-teal-700 sm:text-6xl">
             Athletic Programs
           </p>
           <p className="mt-2 ml-4 mb-2 text-1xl tracking-tight text-black sm:text-1xl">

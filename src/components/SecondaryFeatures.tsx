@@ -1,229 +1,111 @@
-'use client';
+"use client";
 
-import { useId } from 'react';
-import Image, { type ImageProps } from 'next/image';
-import { Tab } from '@headlessui/react';
-import clsx from 'clsx';
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
+import clsx from "clsx";
+import { Container } from "@/components/Container";
 
-import { Container } from '@/components/Container';
-import screenshotContacts from '@/images/screenshots/contacts.png';
-import screenshotInventory from '@/images/screenshots/inventory.png';
-import screenshotProfitLoss from '@/images/screenshots/profit-loss.png';
-
-interface Feature {
-  name: React.ReactNode;
-  summary: string;
-  description: string;
-  image: ImageProps['src'];
-  icon: React.ComponentType;
-}
-
-const features: Array<Feature> = [
+const months = [
   {
-    name: 'Reporting',
-    summary: 'Stay on top of things with always up-to-date reporting features.',
-    description:
-      'We talked about reporting in the section above but we needed three items here, so mentioning it one more time for posterity.',
-    image: screenshotProfitLoss,
-    icon: function ReportingIcon() {
-      let id = useId();
-      return (
-        <>
-          <defs>
-            <linearGradient
-              id={id}
-              x1="11.5"
-              y1={18}
-              x2={36}
-              y2="15.5"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop offset=".194" stopColor="#fff" />
-              <stop offset={1} stopColor="#6692F1" />
-            </linearGradient>
-          </defs>
-          <path
-            d="m30 15-4 5-4-11-4 18-4-11-4 7-4-5"
-            stroke={`url(#${id})`}
-            strokeWidth={2}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </>
-      );
-    },
+    name: "January",
+    days: [
+      { date: "2021-12-27" },
+      { date: "2021-12-28" },
+      { date: "2021-12-29" },
+      { date: "2021-12-30" },
+      { date: "2021-12-31" },
+      { date: "2022-01-01", isCurrentMonth: true },
+      { date: "2022-01-02", isCurrentMonth: true },
+      { date: "2022-01-03", isCurrentMonth: true },
+      { date: "2022-01-04", isCurrentMonth: true },
+      { date: "2022-01-05", isCurrentMonth: true },
+      { date: "2022-01-06", isCurrentMonth: true },
+      { date: "2022-01-07", isCurrentMonth: true },
+      { date: "2022-01-08", isCurrentMonth: true },
+      { date: "2022-01-09", isCurrentMonth: true },
+      { date: "2022-01-10", isCurrentMonth: true },
+      { date: "2022-01-11", isCurrentMonth: true },
+      { date: "2022-01-12", isCurrentMonth: true, isToday: true },
+      { date: "2022-01-13", isCurrentMonth: true },
+      { date: "2022-01-14", isCurrentMonth: true },
+      { date: "2022-01-15", isCurrentMonth: true },
+      { date: "2022-01-16", isCurrentMonth: true },
+      { date: "2022-01-17", isCurrentMonth: true },
+      { date: "2022-01-18", isCurrentMonth: true },
+      { date: "2022-01-19", isCurrentMonth: true },
+      { date: "2022-01-20", isCurrentMonth: true },
+      { date: "2022-01-21", isCurrentMonth: true },
+      { date: "2022-01-22", isCurrentMonth: true },
+      { date: "2022-01-23", isCurrentMonth: true },
+      { date: "2022-01-24", isCurrentMonth: true },
+      { date: "2022-01-25", isCurrentMonth: true },
+      { date: "2022-01-26", isCurrentMonth: true },
+      { date: "2022-01-27", isCurrentMonth: true },
+      { date: "2022-01-28", isCurrentMonth: true },
+      { date: "2022-01-29", isCurrentMonth: true },
+      { date: "2022-01-30", isCurrentMonth: true },
+      { date: "2022-01-31", isCurrentMonth: true },
+      { date: "2022-02-01" },
+      { date: "2022-02-02" },
+      { date: "2022-02-03" },
+      { date: "2022-02-04" },
+      { date: "2022-02-05" },
+      { date: "2022-02-06" },
+    ],
   },
   {
-    name: 'Inventory',
-    summary:
-      'Never lose track of what’s in stock with accurate inventory tracking.',
-    description:
-      'We don’t offer this as part of our software but that statement is inarguably true. Accurate inventory tracking would help you for sure.',
-    image: screenshotInventory,
-    icon: function InventoryIcon() {
-      return (
-        <>
-          <path
-            opacity=".5"
-            d="M8 17a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2Z"
-            fill="#fff"
-          />
-          <path
-            opacity=".3"
-            d="M8 24a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2Z"
-            fill="#fff"
-          />
-          <path
-            d="M8 10a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2Z"
-            fill="#fff"
-          />
-        </>
-      );
-    },
-  },
-  {
-    name: 'Contacts',
-    summary:
-      'Organize all of your contacts, service providers, and invoices in one place.',
-    description:
-      'This also isn’t actually a feature, it’s just some friendly advice. We definitely recommend that you do this, you’ll feel really organized and professional.',
-    image: screenshotContacts,
-    icon: function ContactsIcon() {
-      return (
-        <>
-          <path
-            opacity=".5"
-            d="M25.778 25.778c.39.39 1.027.393 1.384-.028A11.952 11.952 0 0 0 30 18c0-6.627-5.373-12-12-12S6 11.373 6 18c0 2.954 1.067 5.659 2.838 7.75.357.421.993.419 1.384.028.39-.39.386-1.02.036-1.448A9.959 9.959 0 0 1 8 18c0-5.523 4.477-10 10-10s10 4.477 10 10a9.959 9.959 0 0 1-2.258 6.33c-.35.427-.354 1.058.036 1.448Z"
-            fill="#fff"
-          />
-          <path
-            d="M12 28.395V28a6 6 0 0 1 12 0v.395A11.945 11.945 0 0 1 18 30c-2.186 0-4.235-.584-6-1.605ZM21 16.5c0-1.933-.5-3.5-3-3.5s-3 1.567-3 3.5 1.343 3.5 3 3.5 3-1.567 3-3.5Z"
-            fill="#fff"
-          />
-        </>
-      );
-    },
+    name: "February",
+    days: [
+      { date: "2022-01-31" },
+      { date: "2022-02-01", isCurrentMonth: true },
+      { date: "2022-02-02", isCurrentMonth: true },
+      { date: "2022-02-03", isCurrentMonth: true },
+      { date: "2022-02-04", isCurrentMonth: true },
+      { date: "2022-02-05", isCurrentMonth: true },
+      { date: "2022-02-06", isCurrentMonth: true },
+      { date: "2022-02-07", isCurrentMonth: true },
+      { date: "2022-02-08", isCurrentMonth: true },
+      { date: "2022-02-09", isCurrentMonth: true },
+      { date: "2022-02-10", isCurrentMonth: true },
+      { date: "2022-02-11", isCurrentMonth: true },
+      { date: "2022-02-12", isCurrentMonth: true },
+      { date: "2022-02-13", isCurrentMonth: true },
+      { date: "2022-02-14", isCurrentMonth: true },
+      { date: "2022-02-15", isCurrentMonth: true },
+      { date: "2022-02-16", isCurrentMonth: true },
+      { date: "2022-02-17", isCurrentMonth: true },
+      { date: "2022-02-18", isCurrentMonth: true },
+      { date: "2022-02-19", isCurrentMonth: true },
+      { date: "2022-02-20", isCurrentMonth: true },
+      { date: "2022-02-21", isCurrentMonth: true },
+      { date: "2022-02-22", isCurrentMonth: true },
+      { date: "2022-02-23", isCurrentMonth: true },
+      { date: "2022-02-24", isCurrentMonth: true },
+      { date: "2022-02-25", isCurrentMonth: true },
+      { date: "2022-02-26", isCurrentMonth: true },
+      { date: "2022-02-27", isCurrentMonth: true },
+      { date: "2022-02-28", isCurrentMonth: true },
+      { date: "2022-03-01" },
+      { date: "2022-03-02" },
+      { date: "2022-03-03" },
+      { date: "2022-03-04" },
+      { date: "2022-03-05" },
+      { date: "2022-03-06" },
+      { date: "2022-03-07" },
+      { date: "2022-03-08" },
+      { date: "2022-03-09" },
+      { date: "2022-03-10" },
+      { date: "2022-03-11" },
+      { date: "2022-03-12" },
+      { date: "2022-03-13" },
+    ],
   },
 ];
 
-function Feature({
-  feature,
-  isActive,
-  className,
-  ...props
-}: React.ComponentPropsWithoutRef<'div'> & {
-  feature: Feature;
-  isActive: boolean;
-}) {
-  return (
-    <div
-      className={clsx(className, !isActive && 'opacity-75 hover:opacity-100')}
-      {...props}
-    >
-      <div
-        className={clsx(
-          'w-9 rounded-lg',
-          isActive ? 'bg-blue-600' : 'bg-slate-500'
-        )}
-      >
-        <svg aria-hidden="true" className="h-9 w-9" fill="none">
-          <feature.icon />
-        </svg>
-      </div>
-      <h3
-        className={clsx(
-          'mt-6 text-sm font-medium',
-          isActive ? 'text-blue-600' : 'text-slate-600'
-        )}
-      >
-        {feature.name}
-      </h3>
-      <p className="mt-2 font-display text-xl text-slate-900">
-        {feature.summary}
-      </p>
-    </div>
-  );
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
 }
 
-function FeaturesMobile() {
-  return (
-    <div className="-mx-4 mt-20 flex flex-col gap-y-10 overflow-hidden px-4 sm:-mx-6 sm:px-6 lg:hidden">
-      {features.map((feature) => (
-        <div key={feature.summary}>
-          <Feature feature={feature} className="mx-auto max-w-2xl" isActive />
-          <div className="relative mt-10 pb-10">
-            <div className="absolute -inset-x-4 bottom-0 top-8 bg-slate-200 sm:-inset-x-6" />
-            <div className="relative mx-auto w-[52.75rem] overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
-              <Image
-                className="w-full"
-                src={feature.image}
-                alt=""
-                sizes="52.75rem"
-              />
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function FeaturesDesktop() {
-  return (
-    <Tab.Group as="div" className="hidden lg:mt-20 lg:block">
-      {({ selectedIndex }) => (
-        <>
-          <Tab.List className="grid grid-cols-3 gap-x-8">
-            {features.map((feature, featureIndex) => (
-              <Feature
-                key={feature.summary}
-                feature={{
-                  ...feature,
-                  name: (
-                    <Tab className="ui-not-focus-visible:outline-none">
-                      <span className="absolute inset-0" />
-                      {feature.name}
-                    </Tab>
-                  ),
-                }}
-                isActive={featureIndex === selectedIndex}
-                className="relative"
-              />
-            ))}
-          </Tab.List>
-          <Tab.Panels className="relative mt-20 overflow-hidden rounded-4xl bg-slate-200 px-14 py-16 xl:px-16">
-            <div className="-mx-5 flex">
-              {features.map((feature, featureIndex) => (
-                <Tab.Panel
-                  static
-                  key={feature.summary}
-                  className={clsx(
-                    'px-5 transition duration-500 ease-in-out ui-not-focus-visible:outline-none',
-                    featureIndex !== selectedIndex && 'opacity-60'
-                  )}
-                  style={{ transform: `translateX(-${selectedIndex * 100}%)` }}
-                  aria-hidden={featureIndex !== selectedIndex}
-                >
-                  <div className="w-[52.75rem] overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
-                    <Image
-                      className="w-full"
-                      src={feature.image}
-                      alt=""
-                      sizes="52.75rem"
-                    />
-                  </div>
-                </Tab.Panel>
-              ))}
-            </div>
-            <div className="pointer-events-none absolute inset-0 rounded-4xl ring-1 ring-inset ring-slate-900/10" />
-          </Tab.Panels>
-        </>
-      )}
-    </Tab.Group>
-  );
-}
-
-export function SecondaryFeatures() {
+export default function SecondaryFeatures() {
   return (
     <section
       id="secondary-features"
@@ -231,17 +113,124 @@ export function SecondaryFeatures() {
       className="pb-14 pt-20 sm:pb-20 sm:pt-32 lg:pb-32"
     >
       <Container>
-        <div className="mx-auto max-w-2xl md:text-center">
-          <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Simplify everyday business tasks.
-          </h2>
-          <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Because you’d probably be a little confused if we suggested you
-            complicate your everyday business tasks instead.
-          </p>
+        <div className="mx-auto max-w-2xl md:text-center"></div>
+        <div className="relative grid grid-cols-1 gap-x-14 md:grid-cols-2">
+          <button
+            type="button"
+            className="absolute -left-1.5 -top-1 flex items-center justify-center p-1.5 text-gray-400 hover:text-gray-500"
+          >
+            <span className="sr-only">Previous month</span>
+            <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            className="absolute -right-1.5 -top-1 flex items-center justify-center p-1.5 text-gray-400 hover:text-gray-500"
+          >
+            <span className="sr-only">Next month</span>
+            <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
+          </button>
+          {months.map((month, monthIdx) => (
+            <section
+              key={monthIdx}
+              className={classNames(
+                // @ts-expect-error
+                monthIdx === months.length - 1 && "hidden md:block",
+                "text-center"
+              )}
+            >
+              <h2 className="text-sm font-semibold text-gray-900">
+                {month.name}
+              </h2>
+              <div className="mt-6 grid grid-cols-7 text-xs leading-6 text-gray-500">
+                <div>M</div>
+                <div>T</div>
+                <div>W</div>
+                <div>T</div>
+                <div>F</div>
+                <div>S</div>
+                <div>S</div>
+              </div>
+              <div className="isolate mt-2 grid grid-cols-7 gap-px rounded-lg bg-gray-200 text-sm shadow ring-1 ring-gray-200">
+                {month.days.map((day, dayIdx) => (
+                  <button
+                    key={day.date}
+                    type="button"
+                    className={classNames(
+                      day.isCurrentMonth
+                        ? "bg-white text-gray-900"
+                        : "bg-gray-50 text-gray-400",
+                      // @ts-expect-error
+                      dayIdx === 0 && "rounded-tl-lg",
+                      dayIdx === 6 && "rounded-tr-lg",
+                      dayIdx === month.days.length - 7 && "rounded-bl-lg",
+                      dayIdx === month.days.length - 1 && "rounded-br-lg",
+                      "relative py-1.5 hover:bg-gray-100 focus:z-10"
+                    )}
+                  >
+                    <time
+                      dateTime={day.date}
+                      className={classNames(
+                        // @ts-expect-error
+                        day.isToday && "bg-teal-600 font-semibold text-white",
+                        "mx-auto flex h-7 w-7 items-center justify-center rounded-full"
+                      )}
+                    >
+                      {day.date.split("-").pop()?.replace(/^0/, "")}
+                    </time>
+                  </button>
+                ))}
+              </div>
+            </section>
+          ))}
         </div>
-        <FeaturesMobile />
-        <FeaturesDesktop />
+        <section className="mt-12">
+          <h2 className="text-base font-semibold leading-6 text-gray-900">
+            Upcoming events
+          </h2>
+          <ol className="mt-2 divide-y divide-gray-200 text-sm leading-6 text-gray-500">
+            <li className="py-4 sm:flex">
+              <time dateTime="2022-01-17" className="w-28 flex-none">
+                Wed, Jan 12
+              </time>
+              <p className="mt-2 flex-auto sm:mt-0">
+                Nothing on today’s schedule
+              </p>
+            </li>
+            <li className="py-4 sm:flex">
+              <time dateTime="2022-01-19" className="w-28 flex-none">
+                Thu, Jan 13
+              </time>
+              <p className="mt-2 flex-auto font-semibold text-gray-900 sm:mt-0">
+                View house with real estate agent
+              </p>
+              <p className="flex-none sm:ml-6">
+                <time dateTime="2022-01-13T14:30">2:30 PM</time> -{" "}
+                <time dateTime="2022-01-13T16:30">4:30 PM</time>
+              </p>
+            </li>
+            <li className="py-4 sm:flex">
+              <time dateTime="2022-01-20" className="w-28 flex-none">
+                Fri, Jan 14
+              </time>
+              <p className="mt-2 flex-auto font-semibold text-gray-900 sm:mt-0">
+                Meeting with bank manager
+              </p>
+              <p className="flex-none sm:ml-6">All day</p>
+            </li>
+            <li className="py-4 sm:flex">
+              <time dateTime="2022-01-18" className="w-28 flex-none">
+                Mon, Jan 17
+              </time>
+              <p className="mt-2 flex-auto font-semibold text-gray-900 sm:mt-0">
+                Sign paperwork at lawyers
+              </p>
+              <p className="flex-none sm:ml-6">
+                <time dateTime="2022-01-17T10:00">10:00 AM</time> -{" "}
+                <time dateTime="2022-01-17T10:15">10:15 AM</time>
+              </p>
+            </li>
+          </ol>
+        </section>
       </Container>
     </section>
   );
