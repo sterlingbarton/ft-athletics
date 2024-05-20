@@ -13,7 +13,7 @@ const variantStyles = {
     orange:
       'bg-orange-900 text-white hover:bg-orange-700 active:bg-orange-800 focus-visible:outline-orange-900',
     green:
-      'bg-green-900 text-white hover:bg-green-500 active:bg-green-900 focus-visible:outline-green-500',
+      'bg-green-500 text-white hover:bg-green-500 active:bg-green-900 focus-visible:outline-green-500',
   },
   outline: {
     orange:

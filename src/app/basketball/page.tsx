@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
+import TeamCalendar from '@/components/TeamCalendar';
 import Coaches from '@/components/Coaches';
 
 const stats = [
@@ -155,6 +156,9 @@ export default function Example() {
             </div>
           </div>
         </div>
+
+        {/* Calendar section */}
+        <TeamCalendar />
 
         {/* Content section */}
         <div className="mx-auto -mt-12 max-w-7xl px-6 sm:mt-0 lg:px-8 xl:-mt-8">
