@@ -153,7 +153,7 @@ export function Header() {
                 href="/contact"
                 variant="solid"
                 color="orange"
-                className="rounded-md"
+                className="-mr-4"
               >
                 Contact
               </Button>
