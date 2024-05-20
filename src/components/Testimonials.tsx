@@ -1,29 +1,29 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import { Container } from "@/components/Container";
-import avatarImage1 from "@/images/avatars/avatar-1.png";
-import avatarImage2 from "@/images/avatars/avatar-2.png";
-import avatarImage3 from "@/images/avatars/avatar-3.png";
-import avatarImage4 from "@/images/avatars/avatar-4.png";
-import avatarImage5 from "@/images/avatars/avatar-5.png";
+import { Container } from '@/components/Container';
+import avatarImage1 from '@/images/avatars/avatar-1.png';
+import avatarImage2 from '@/images/avatars/avatar-2.png';
+import avatarImage3 from '@/images/avatars/avatar-3.png';
+import avatarImage4 from '@/images/avatars/avatar-4.png';
+import avatarImage5 from '@/images/avatars/avatar-5.png';
 
 const testimonials = [
   [
     {
       content:
-        "First Triump Athletics gave me the skills and confidence I needed to excel in volleyball. Now, I'm excited to join the volleyball team at University this fall!",
+        "First Triumph Athletics gave me the skills and confidence I needed to excel in volleyball. Now, I'm excited to join the volleyball team at University this fall!",
       author: {
-        name: "Jenna Smith",
-        role: "Volleyball Player",
+        name: 'Jenna Smith',
+        role: 'Volleyball Player',
         image: avatarImage1,
       },
     },
     {
       content:
-        "Thanks to the dedicated coaches at First Triump Athletics, I received a scholarship to play basketball at NWU. I couldn't be more grateful!",
+        "Thanks to the dedicated coaches at First Triumph Athletics, I received a scholarship to play basketball at NWU. I couldn't be more grateful!",
       author: {
-        name: "Emma Johnson",
-        role: "Basketball Player",
+        name: 'Emma Johnson',
+        role: 'Basketball Player',
         image: avatarImage4,
       },
     },
@@ -31,19 +31,19 @@ const testimonials = [
   [
     {
       content:
-        "The environment at First Triump Athletics is incredibly supportive. I've improved so much as a volleyball player and made lifelong friends along the way.",
+        "The environment at First Triumph Athletics is incredibly supportive. I've improved so much as a volleyball player and made lifelong friends along the way.",
       author: {
-        name: "Sophia Lee",
-        role: "Volleyball Player",
+        name: 'Sophia Lee',
+        role: 'Volleyball Player',
         image: avatarImage5,
       },
     },
     {
       content:
-        "First Triump Athletics not only helped me become a better basketball player but also taught me the importance of teamwork and perseverance. I'm thrilled to be playing at Central University next year.",
+        "First Triumph Athletics not only helped me become a better basketball player but also taught me the importance of teamwork and perseverance. I'm thrilled to be playing at Central University next year.",
       author: {
-        name: "Olivia Brown",
-        role: "Basketball Player",
+        name: 'Olivia Brown',
+        role: 'Basketball Player',
         image: avatarImage2,
       },
     },
@@ -51,26 +51,26 @@ const testimonials = [
   [
     {
       content:
-        "Joining First Triump Athletics was the best decision I ever made. The coaches and staff are amazing, and I'm proud to be heading to SCU on a volleyball scholarship.",
+        "Joining First Triumph Athletics was the best decision I ever made. The coaches and staff are amazing, and I'm proud to be heading to SCU on a volleyball scholarship.",
       author: {
-        name: "Ava Davis",
-        role: "Volleyball Player",
+        name: 'Ava Davis',
+        role: 'Volleyball Player',
         image: avatarImage3,
       },
     },
     {
       content:
-        "First Triump Athletics provided me with top-notch training and support. I've grown so much as a player and person, and now I'm excited to play basketball at the collegiate level.",
+        "First Triumph Athletics provided me with top-notch training and support. I've grown so much as a player and person, and now I'm excited to play basketball at the collegiate level.",
       author: {
-        name: "Mia Martinez",
-        role: "Basketball Player",
+        name: 'Mia Martinez',
+        role: 'Basketball Player',
         image: avatarImage4,
       },
     },
   ],
 ];
 
-function QuoteIcon(props: React.ComponentPropsWithoutRef<"svg">) {
+function QuoteIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg aria-hidden="true" width={105} height={78} {...props}>
       <path d="M25.086 77.292c-4.821 0-9.115-1.205-12.882-3.616-3.767-2.561-6.78-6.102-9.04-10.622C1.054 58.534 0 53.411 0 47.686c0-5.273.904-10.396 2.712-15.368 1.959-4.972 4.746-9.567 8.362-13.786a59.042 59.042 0 0 1 12.43-11.3C28.325 3.917 33.599 1.507 39.324 0l11.074 13.786c-6.479 2.561-11.677 5.951-15.594 10.17-3.767 4.219-5.65 7.835-5.65 10.848 0 1.356.377 2.863 1.13 4.52.904 1.507 2.637 3.089 5.198 4.746 3.767 2.41 6.328 4.972 7.684 7.684 1.507 2.561 2.26 5.5 2.26 8.814 0 5.123-1.959 9.19-5.876 12.204-3.767 3.013-8.588 4.52-14.464 4.52Zm54.24 0c-4.821 0-9.115-1.205-12.882-3.616-3.767-2.561-6.78-6.102-9.04-10.622-2.11-4.52-3.164-9.643-3.164-15.368 0-5.273.904-10.396 2.712-15.368 1.959-4.972 4.746-9.567 8.362-13.786a59.042 59.042 0 0 1 12.43-11.3C82.565 3.917 87.839 1.507 93.564 0l11.074 13.786c-6.479 2.561-11.677 5.951-15.594 10.17-3.767 4.219-5.65 7.835-5.65 10.848 0 1.356.377 2.863 1.13 4.52.904 1.507 2.637 3.089 5.198 4.746 3.767 2.41 6.328 4.972 7.684 7.684 1.507 2.561 2.26 5.5 2.26 8.814 0 5.123-1.959 9.19-5.876 12.204-3.767 3.013-8.588 4.52-14.464 4.52Z" />
