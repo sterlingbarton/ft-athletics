@@ -90,7 +90,7 @@ function classNames(...classes: (string | boolean | undefined)[]) {
 
 export default function TeamCalendar() {
   return (
-    <div className="sm:mx-20 lg:mx-28 xl:mx-48 mb-8">
+    <div className="mx-auto max-w-7xl sm:mx-20 lg:mx-28 xl:mx-48 mb-8">
       <h2 className="text-5xl tracking-tight text-teal-600 font-bold leading-6 sm:mb-8">
         Upcoming events
       </h2>
