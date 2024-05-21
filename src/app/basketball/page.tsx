@@ -77,14 +77,18 @@ export default function Example() {
             <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
               <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                 <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
-                  <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                    Basketball
+                  <h1 className="text-5xl font-bold tracking-tight text-gray-900 xl:text-6xl">
+                    First Triumph Athletics
                   </h1>
+                  <h2 className="relative mt-6 text-4xl font-bold leading-8 text-gray-600 sm:max-w-md lg:max-w-none xl:text-5xl">
+                    Women&apos;s Basketball Team
+                  </h2>
                   <Button
                     href="/"
                     variant="solid"
-                    className="px-12 py-3 mt-10 text-white"
+                    className="px-8 py-3 mt-10 text-white"
                   >
+                    {' '}
                     Register for the 24-25 tryouts
                   </Button>
                 </div>
