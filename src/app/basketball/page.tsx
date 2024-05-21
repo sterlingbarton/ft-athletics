@@ -156,10 +156,8 @@ export default function Example() {
             </div>
           </div>
         </div>
-
         {/* Calendar section */}
         <TeamCalendar />
-
         {/* Content section */}
         <div className="mx-auto -mt-12 max-w-7xl px-6 sm:mt-0 lg:px-8 xl:-mt-8">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
@@ -221,7 +219,6 @@ export default function Example() {
             className="aspect-[5/2] w-full object-cover xl:rounded-3xl"
           />
         </div>
-
         {/* Values section */}
         <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">

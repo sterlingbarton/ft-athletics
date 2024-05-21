@@ -160,17 +160,12 @@ export default function TeamCalendar() {
                     day.isSelected && !day.isToday && 'bg-gray-900'
                   )}
                 >
-                  {day.date.split('-').pop().replace(/^0/, '')}
+                  {//@ts-ignore
+                  day?.date.split('-').pop().replace(/^0/, '')}
                 </time>
               </button>
             ))}
           </div>
-          <button
-            type="button"
-            className="mt-8 w-full rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white shadow hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
-          >
-            Add event
-          </button>
         </div>
         <ol className="mt-4 divide-y divide-gray-100 text-sm leading-6 lg:col-span-5">
           {meetings.map((meeting) => (
@@ -214,65 +209,6 @@ export default function TeamCalendar() {
                   </div>
                 </dl>
               </div>
-              <Menu
-                as="div"
-                className="absolute right-0 top-6 xl:relative xl:right-auto xl:top-auto xl:self-center"
-              >
-                <div>
-                  <Menu.Button className="-m-2 flex items-center rounded-full p-2 text-gray-500 hover:text-gray-600 lg:-mt-9">
-                    <span className="sr-only">Open options</span>
-                    <EllipsisHorizontalIcon
-                      className="h-5 w-5"
-                      aria-hidden="true"
-                    />
-                  </Menu.Button>
-                </div>
-
-                <Transition
-                  as={Fragment}
-                  enter="transition ease-out duration-100"
-                  enterFrom="transform opacity-0 scale-95"
-                  enterTo="transform opacity-100 scale-100"
-                  leave="transition ease-in duration-75"
-                  leaveFrom="transform opacity-100 scale-100"
-                  leaveTo="transform opacity-0 scale-95"
-                >
-                  <Menu.Items className="absolute right-0 z-10 mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <div className="py-1">
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(
-                              active
-                                ? 'bg-gray-100 text-gray-900'
-                                : 'text-gray-700',
-                              'block px-4 py-2 text-sm'
-                            )}
-                          >
-                            Edit
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(
-                              active
-                                ? 'bg-gray-100 text-gray-900'
-                                : 'text-gray-700',
-                              'block px-4 py-2 text-sm'
-                            )}
-                          >
-                            Cancel
-                          </a>
-                        )}
-                      </Menu.Item>
-                    </div>
-                  </Menu.Items>
-                </Transition>
-              </Menu>
             </li>
           ))}
         </ol>
