@@ -1,13 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import { Fragment } from 'react';
 import {
   CalendarIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-  EllipsisHorizontalIcon,
   MapPinIcon,
 } from '@heroicons/react/20/solid';
-import { Menu, Transition } from '@headlessui/react';
 
 const meetings = [
   {
@@ -94,7 +91,7 @@ function classNames(...classes: (string | boolean | undefined)[]) {
 export default function TeamCalendar() {
   return (
     <div className="sm:mx-20 lg:mx-28 xl:mx-48 mb-8">
-      <h2 className="text-5xl tracking-tight text-teal-600 font-bold leading-6 sm:mb-16">
+      <h2 className="text-5xl tracking-tight text-teal-600 font-bold leading-6 sm:mb-8">
         Upcoming events
       </h2>
       <div className="lg:grid lg:grid-cols-12">
@@ -173,11 +170,6 @@ export default function TeamCalendar() {
               key={meeting.id}
               className="relative flex space-x-6 py-6 xl:static"
             >
-              <img
-                src={meeting.imageUrl}
-                alt=""
-                className="h-14 w-14 flex-none rounded-full"
-              />
               <div className="flex-auto">
                 <h3 className="pr-10 font-semibold text-gray-900 xl:pr-0">
                   {meeting.name}
