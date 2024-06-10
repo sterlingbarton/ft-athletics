@@ -76,7 +76,7 @@ export default function Example() {
                     className="hover:text-gray-900"
                     href="tel:+1 (555) 234-5678"
                   >
-                    +1 (555) 234-5678
+                    (346)-775-4867
                   </a>
                 </dd>
               </div>
