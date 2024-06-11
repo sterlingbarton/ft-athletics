@@ -34,8 +34,28 @@ const config: Config = {
           900: '#f28908',
         },
       },
+      borderRadius: {
+        'custom-br': '50%',
+      },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    function ({
+      addUtilities,
+    }: {
+      addUtilities: (
+        utilities: Record<string, any>,
+        variants?: string[]
+      ) => void;
+    }) {
+      const newUtilities = {
+        '.rounded-br-custom': {
+          borderBottomRightRadius: '50%',
+        },
+      };
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    },
+  ],
 };
 export default config;

@@ -1,12 +1,11 @@
-"use client";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { Box } from "@mui/material/";
-import { Button } from "@/components/Button";
-import { Container } from "@/components/Container";
+'use client';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { Button } from '@/components/Button';
+import { Container } from '@/components/Container';
 
 export function Hero() {
-  const images = ["/hero-1.png", "/hero-2.png", "/hero-3.png"];
+  const images = ['/hero-1.png', '/hero-2.png', '/hero-3.png'];
 
   const [currentImage, setCurrentImage] = useState(0);
 
@@ -16,49 +15,24 @@ export function Hero() {
     }, 5000); // Change image every 5000 milliseconds (5 seconds)
 
     return () => clearInterval(intervalId); // Cleanup the interval on component unmount
-  }, []);
+  }, [images.length]);
   return (
-    <Box
-      className="relative"
-      sx={{
-        height: { xs: "60vh", md: "90vh" },
-        backgroundColor: "white",
-      }}
-    >
-      <Image
-        src={images[currentImage]}
-        layout="fill"
-        objectFit="cover"
-        quality={100}
-        alt="Background"
-        className="z-0 sm:pr-12"
-        style={{
-          borderRadius: "0 0 11.6% 0",
-          backgroundColor: "white",
-          //paddingRight: 50,
-        }}
-      />
-      <Box
-        className="absolute inset-0 bg-black opacity-50 z-10"
-        sx={{
-          borderRadius: "0 0 10% 0",
-          height: "100%",
-          width: { sm: "calc(100vw - 48px)", lg: "calc(100vw - 62px)" },
-          right: 0,
-        }}
-      />
-      {/* Black transparent overlay */}
-      <Container className="pb-16 text-center lg:pt-32 z-20 relative">
-        <Box
-          sx={{
-            mt: 15,
-            flex: 1,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "fle-start",
-            flexDirection: "column",
-          }}
-        >
+    <div className="relative bg-white h-[60vh] md:h-[90vh]">
+      <div className="h-screen absolute inset-0 z-0">
+        <div className="absolute top-0 left-0 w-[90%] h-full overflow-hidden rounded-br-custom">
+          <Image
+            src={images[currentImage]}
+            fill
+            quality={100}
+            alt="Hero"
+            className="absolute object-cover w-full h-full rounded-br-custom"
+          />
+          <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 rounded-br-custom"></div>
+        </div>
+      </div>
+
+      <Container className="pb-16 text-center z-20 relative pt-32">
+        <div className="flex flex-1 flex-col">
           <h1 className="text-left font-display text-7xl font-medium tracking-tight text-white sm:text-7xl">
             First Triumph
           </h1>
@@ -81,8 +55,8 @@ export function Hero() {
               Basketball
             </Button>
           </div>
-        </Box>
+        </div>
       </Container>
-    </Box>
+    </div>
   );
 }
