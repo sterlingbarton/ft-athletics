@@ -109,7 +109,16 @@ export function Pricing() {
             price="$150 / month"
             description="Good for anyone who is self-employed and just getting started."
             href="/register"
-            features={['Deposit required', 'Ages 9-14 boys and girls']}
+            features={[
+              'Deposit required',
+              'Ages 9-14 boys and girls',
+              'Regular training sessions with experienced coaches',
+              'Use of basketball courts for practice',
+              'Participation in team practices and games',
+              'Clinics focusing on specific skills',
+              'Team jersey, shorts, and basic equipment included',
+              'Entry to local and regional competitions.',
+            ]}
           />
           <Plan
             featured
@@ -117,34 +126,17 @@ export function Pricing() {
             price="$250 / month"
             description="Perfect for small / medium sized businesses."
             href="/register"
-            features={['Deposit required']}
-          />
-          {/* <Plan
-            name="Cheer"
-            price="$39"
-            description="For even the biggest enterprise companies."
-            href="/register"
             features={[
-              'Send unlimited quotes and invoices',
-              'Connect up to 15 bank accounts',
-              'Track up to 200 expenses per month',
-              'Automated payroll support',
-              'Export up to 25 reports, including TPS',
+              'Deposit required',
+              'Ages 9-14 boys and girls',
+              'Regular training sessions with experienced coaches',
+              'Use of basketball courts for practice',
+              'Participation in team practices and games',
+              'Clinics focusing on specific skills',
+              'Team jersey, shorts, and basic equipment included',
+              'Entry to local and regional competitions.',
             ]}
           />
-          <Plan
-            name="Dance"
-            price="$39"
-            description="For even the biggest enterprise companies."
-            href="/register"
-            features={[
-              'Send unlimited quotes and invoices',
-              'Connect up to 15 bank accounts',
-              'Track up to 200 expenses per month',
-              'Automated payroll support',
-              'Export up to 25 reports, including TPS',
-            ]}
-          /> */}
         </div>
       </Container>
     </section>
