@@ -109,8 +109,17 @@ function MobileNavigation() {
   );
 }
 
+const checkBackground = (color: string): boolean => {
+  const rgb = color.match(/\d+/g)?.map(Number);
+  if (!rgb) return false;
+  const [r, g, b] = rgb;
+  const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  return luminance < 128;
+};
+
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDarkBackground, setIsDarkBackground] = useState(false);
   const path = usePathname();
   const isContactPage = path === '/contact';
 
@@ -118,6 +127,15 @@ export function Header() {
     const handleScroll = () => {
       const isTop = window.scrollY < 50;
       setIsScrolled(!isTop);
+
+      const element = document.elementFromPoint(
+        window.innerWidth / 2,
+        window.scrollY + 1
+      );
+      if (element) {
+        const bgColor = window.getComputedStyle(element).backgroundColor;
+        setIsDarkBackground(checkBackground(bgColor));
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -129,7 +147,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 py-0 sm:mx-15 md:mx-20 lg:mx-40 xl:mx-60 transition-colors duration-300 md:rounded-br-3xl md:rounded-bl-3xl ${!isScrolled ? 'bg-transparent' : 'bg-white shadow-md'}`}
+      className={`fixed top-0 left-0 right-0 z-50 py-0 sm:mx-15 md:mx-20 lg:mx-40 xl:mx-60 transition-colors duration-300 md:rounded-br-3xl md:rounded-bl-3xl ${!isScrolled && !isDarkBackground ? 'bg-transparent' : 'bg-white shadow-md'}`}
     >
       <Container>
         <nav className="relative flex justify-between px-5 py-3">
@@ -140,7 +158,11 @@ export function Header() {
             <div className="hidden md:flex md:gap-x-6 align-baseline">
               {headerNavigation.main.map((item) => (
                 <div key={item.name}>
-                  <NavLink href={item.href} isScrolled={isScrolled}>
+                  <NavLink
+                    href={item.href}
+                    isScrolled={isScrolled}
+                    isDarkBackground={isDarkBackground}
+                  >
                     {item.name}
                   </NavLink>
                 </div>
