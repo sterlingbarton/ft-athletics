@@ -9,14 +9,15 @@ import { Container } from '@/components/Container';
 import { Logo } from '@/components/Logo';
 import { NavLink } from '@/components/NavLink';
 import { Button } from '@/components/Button';
+import { parseToRgb, getLuminance, rgb } from 'polished';
 
 const headerNavigation = {
   main: [
     { name: 'About Us', href: '/about' },
     { name: 'Volleyball', href: '/volleyball' },
     { name: 'Basketball', href: '/basketball' },
-    { name: 'Cheer', href: '/cheer' },
-    { name: 'Dance', href: '/dance' },
+    // { name: 'Cheer', href: '/cheer' },
+    // { name: 'Dance', href: '/dance' },
   ],
 };
 
@@ -109,45 +110,66 @@ function MobileNavigation() {
   );
 }
 
-const checkBackground = (color: string): boolean => {
-  const rgb = color.match(/\d+/g)?.map(Number);
-  if (!rgb) return false;
-  const [r, g, b] = rgb;
-  const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-  return luminance < 128;
-};
-
-export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isDarkBackground, setIsDarkBackground] = useState(false);
-  const path = usePathname();
-  const isContactPage = path === '/contact';
+function useScrollThreshold(threshold: number) {
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const isTop = window.scrollY < 50;
-      setIsScrolled(!isTop);
-
-      const element = document.elementFromPoint(
-        window.innerWidth / 2,
-        window.scrollY + 1
-      );
-      if (element) {
-        const bgColor = window.getComputedStyle(element).backgroundColor;
-        setIsDarkBackground(checkBackground(bgColor));
-      }
+    const onScroll = () => {
+      setHasScrolled(window.scrollY > threshold);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
+    window.addEventListener('scroll', onScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', onScroll);
     };
+  }, [threshold]);
+
+  return hasScrolled;
+}
+
+function isDarkBackground(element: HTMLElement): boolean {
+  const bgColor = window.getComputedStyle(element).backgroundColor;
+  try {
+    const parsedColor = parseToRgb(bgColor);
+    const colorString = rgb(
+      parsedColor.red,
+      parsedColor.green,
+      parsedColor.blue
+    );
+    // const rgb = parseToRgb(bgColor);
+    const luminance = getLuminance(colorString);
+    return luminance < 0.5;
+  } catch (error) {
+    console.error('Unable to determine background color', error);
+    return false;
+  }
+}
+
+export function Header() {
+  const path = usePathname();
+  const isContactPage = path === '/contact';
+  const [isDarkBg, setIsDarkBg] = useState(false);
+  const hasScrolled = useScrollThreshold(50);
+
+  useEffect(() => {
+    const headerElement = document.querySelector('header');
+    if (headerElement && isDarkBackground(headerElement)) {
+      setIsDarkBg(true);
+    } else {
+      setIsDarkBg(false);
+    }
   }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 py-0 sm:mx-15 md:mx-20 lg:mx-40 xl:mx-60 transition-colors duration-300 md:rounded-br-3xl md:rounded-bl-3xl ${!isScrolled && !isDarkBackground ? 'bg-transparent' : 'bg-white shadow-md'}`}
+      className={clsx(
+        'fixed top-0 left-0 right-0 z-50 py-0 sm:mx-15 md:mx-20 lg:mx-40 xl:mx-60 transition-colors duration-300 md:rounded-br-3xl md:rounded-bl-3xl',
+        isDarkBg
+          ? hasScrolled
+            ? 'bg-white text-slate-900'
+            : 'bg-opacity-50 bg-black text-white'
+          : 'bg-white text-slate-900'
+      )}
     >
       <Container>
         <nav className="relative flex justify-between px-5 py-3">
@@ -158,13 +180,7 @@ export function Header() {
             <div className="hidden md:flex md:gap-x-6 align-baseline">
               {headerNavigation.main.map((item) => (
                 <div key={item.name}>
-                  <NavLink
-                    href={item.href}
-                    isScrolled={isScrolled}
-                    isDarkBackground={isDarkBackground}
-                  >
-                    {item.name}
-                  </NavLink>
+                  <NavLink href={item.href}>{item.name}</NavLink>
                 </div>
               ))}
             </div>

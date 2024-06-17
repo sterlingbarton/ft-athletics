@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
+import RadioGroup from '@/components/RadioGroup';
 import TeamCalendar from '@/components/TeamCalendar';
 import Coaches from '@/components/Coaches';
 import { Button } from '@/components/Button';
@@ -144,6 +145,9 @@ export default function Example() {
             </div>
           </div>
         </div>
+
+        {/* Radio Group section */}
+        <RadioGroup />
 
         {/* Calendar section */}
         <TeamCalendar />
