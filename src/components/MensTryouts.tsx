@@ -1,6 +1,6 @@
 import React from 'react';
 
-const mensDates = [
+const dates = [
   { date: 'April 25', groups: ['10', '11', '12', '13', '14'] },
   { date: 'April 26', groups: ['10', '14', '15', '18'] },
   { date: 'May 12', groups: ['15', '16'] },
@@ -21,7 +21,7 @@ export default function MensTryouts({
         <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
           <div className="lg:flex lg:flex-auto lg:justify-center">
             <dl className="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
-              {mensDates.map((date) => (
+              {dates.map((date) => (
                 <div
                   key={date.date}
                   className="flex flex-col bg-gray-400/5 p-8"

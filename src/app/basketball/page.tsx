@@ -2,7 +2,6 @@
 'use client';
 import { useState } from 'react';
 import { RadioGroup } from '@headlessui/react';
-// import RadioGroup from '@/components/RadioGroup';
 import WomensCalendar from '@/components/WomensCalendar';
 import MensCalendar from '@/components/MensCalendar';
 import WomensTryouts from '@/components/WomensTryouts';
@@ -11,6 +10,10 @@ import { Button } from '@/components/Button';
 import basketball from '@/images/basketball.png';
 import bball from '@/images/bball-1.jpeg';
 import bball2 from '@/images/bball-2.jpeg';
+import womensteam from '@/images/womensteam.jpeg';
+import womens from '@/images/womens.jpeg';
+import womenshero from '@/images/womenshero.webp';
+import mensbball from '@/images/mensbball.png';
 import MensTryouts from '@/components/MensTryouts';
 
 type Option = {
@@ -35,7 +38,7 @@ const groupsPrint = (dates: any) => {
   return gatheredInfo.join(' ');
 };
 
-export default function Example() {
+export default function Basketball() {
   const [selected, setSelected] = useState<string>(options[1].name);
 
   const handleChange = (value: any) => {
@@ -129,7 +132,7 @@ export default function Example() {
                     </div>
                     <div className="relative">
                       <img
-                        src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=396&h=528&q=80"
+                        src={womensteam.src}
                         alt=""
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
@@ -139,7 +142,7 @@ export default function Example() {
                   <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                     <div className="relative">
                       <img
-                        src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80"
+                        src={womens.src}
                         alt=""
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
@@ -147,7 +150,7 @@ export default function Example() {
                     </div>
                     <div className="relative">
                       <img
-                        src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
+                        src={womenshero.src}
                         alt=""
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
@@ -200,13 +203,23 @@ export default function Example() {
         )}
 
         {/* Image section */}
-        <div className="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
-          <img
-            src={basketball.src}
-            alt="Basketball team celebrating"
-            className="aspect-[4/2] w-full object-cover xl:rounded-3xl"
-          />
-        </div>
+        {selected === 'Women' ? (
+          <div className="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
+            <img
+              src={basketball.src}
+              alt="Basketball team celebrating"
+              className="aspect-[4/2] w-full object-cover xl:rounded-3xl"
+            />
+          </div>
+        ) : (
+          <div className="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
+            <img
+              src={mensbball.src}
+              alt="Mens basketball team playing"
+              className="aspect-[5/2] w-full object-cover xl:rounded-3xl"
+            />
+          </div>
+        )}
         {/* Coaches section */}
         <Coaches />
       </main>
