@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 import Coaches from '@/components/Coaches';
-import TeamCalendar from '@/components/TeamCalendar';
+import TeamCalendar from '@/components/WomensCalendar';
 import { Button } from '@/components/Button';
 import cta5 from '@/images/cta5.png';
 

@@ -12,7 +12,7 @@ function classNames(...classes: string[]) {
 }
 
 export default function Example() {
-  const [selected, setSelected] = useState<option>(options[2]);
+  const [selected, setSelected] = useState<option>(options[1]);
 
   return (
     <fieldset aria-label="Choose a memory option">

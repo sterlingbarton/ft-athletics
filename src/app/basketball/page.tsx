@@ -1,14 +1,34 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
-import RadioGroup from '@/components/RadioGroup';
-import TeamCalendar from '@/components/TeamCalendar';
+import { useState } from 'react';
+import { RadioGroup } from '@headlessui/react';
+// import RadioGroup from '@/components/RadioGroup';
+import WomensCalendar from '@/components/WomensCalendar';
+import MensCalendar from '@/components/MensCalendar';
 import Coaches from '@/components/Coaches';
 import { Button } from '@/components/Button';
 import basketball from '@/images/basketball.png';
 import bball from '@/images/bball-1.jpeg';
 import bball2 from '@/images/bball-2.jpeg';
 
-const dates = [
+type Option = {
+  name: string;
+};
+
+const options: Option[] = [{ name: 'Men' }, { name: 'Women' }];
+
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(' ');
+}
+
+const womensDates = [
+  { date: 'June 25', groups: ['10', '11', '12', '13', '14'] },
+  { date: 'June 26', groups: ['10', '14', '15', '18'] },
+  { date: 'July 12', groups: ['15', '16'] },
+  { date: 'July 13', groups: ['17', '18'] },
+];
+
+const mensDates = [
   { date: 'June 25', groups: ['10', '11', '12', '13', '14'] },
   { date: 'June 26', groups: ['10', '14', '15', '18'] },
   { date: 'July 12', groups: ['15', '16'] },
@@ -28,6 +48,14 @@ const groupsPrint = (dates: any) => {
 };
 
 export default function Example() {
+  const [selected, setSelected] = useState<string>(options[1].name);
+
+  const handleChange = (value: any) => {
+    setSelected(value);
+  };
+
+  console.log(selected);
+
   return (
     <div className="bg-white">
       <main className="isolate">
@@ -82,7 +110,7 @@ export default function Example() {
                     First Triumph Athletics
                   </h1>
                   <h2 className="relative mt-6 text-4xl font-bold leading-8 text-gray-600 sm:max-w-md lg:max-w-none xl:text-5xl">
-                    Women&apos;s Basketball Team
+                    {`${selected}'s Basketball Team`}
                   </h2>
                   <Button
                     href="/"
@@ -147,10 +175,36 @@ export default function Example() {
         </div>
 
         {/* Radio Group section */}
-        <RadioGroup />
+        <fieldset aria-label="Choose a gender option">
+          <div className="flex justify-center">
+            <RadioGroup
+              value={selected}
+              onChange={handleChange}
+              className="mb-20 grid grid-cols-2 gap-3 sm:grid-cols-2 w-7/12 max-w-screen-md"
+            >
+              {options.map((option) => (
+                <RadioGroup.Option
+                  key={option.name}
+                  value={option.name}
+                  className={({ active, checked }) =>
+                    classNames(
+                      active ? 'ring-2 ring-orange-600 ring-offset-2' : '',
+                      checked
+                        ? 'bg-orange-600 text-white hover:bg-orange-500'
+                        : 'bg-white text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50',
+                      'flex items-center justify-center rounded-md px-3 py-3 text-sm font-semibold uppercase sm:flex-1'
+                    )
+                  }
+                >
+                  {`${option.name}'s`}
+                </RadioGroup.Option>
+              ))}
+            </RadioGroup>
+          </div>
+        </fieldset>
 
         {/* Calendar section */}
-        <TeamCalendar />
+        {selected === 'Women' ? <WomensCalendar /> : <MensCalendar />}
 
         {/* Content section */}
         <div className="mx-auto max-w-7xl md:px-8 sm:mt-16 lg:px-8">
@@ -161,7 +215,7 @@ export default function Example() {
             <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
               <div className="lg:flex lg:flex-auto lg:justify-center">
                 <dl className="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
-                  {dates.map((date) => (
+                  {womensDates.map((date) => (
                     <div
                       key={date.date}
                       className="flex flex-col bg-gray-400/5 p-8"
