@@ -24,7 +24,7 @@ const groupsPrint = (dates: any) => {
   return gatheredInfo.join(' ');
 };
 
-export default function Example() {
+export default function Volleyball() {
   return (
     <div className="bg-white">
       <main className="isolate">
