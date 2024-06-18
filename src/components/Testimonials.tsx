@@ -1,11 +1,6 @@
 import Image from 'next/image';
 
 import { Container } from '@/components/Container';
-import avatarImage1 from '@/images/avatars/avatar-1.png';
-import avatarImage2 from '@/images/avatars/avatar-2.png';
-import avatarImage3 from '@/images/avatars/avatar-3.png';
-import avatarImage4 from '@/images/avatars/avatar-4.png';
-import avatarImage5 from '@/images/avatars/avatar-5.png';
 
 const testimonials = [
   [
@@ -15,7 +10,6 @@ const testimonials = [
       author: {
         name: 'Jenna Smith',
         role: 'Volleyball Player',
-        image: avatarImage1,
       },
     },
     {
@@ -24,7 +18,6 @@ const testimonials = [
       author: {
         name: 'Emma Johnson',
         role: 'Basketball Player',
-        image: avatarImage4,
       },
     },
   ],
@@ -35,7 +28,6 @@ const testimonials = [
       author: {
         name: 'Sophia Lee',
         role: 'Volleyball Player',
-        image: avatarImage5,
       },
     },
     {
@@ -44,7 +36,6 @@ const testimonials = [
       author: {
         name: 'Olivia Brown',
         role: 'Basketball Player',
-        image: avatarImage2,
       },
     },
   ],
@@ -55,7 +46,6 @@ const testimonials = [
       author: {
         name: 'Ava Davis',
         role: 'Volleyball Player',
-        image: avatarImage3,
       },
     },
     {
@@ -64,7 +54,6 @@ const testimonials = [
       author: {
         name: 'Mia Martinez',
         role: 'Basketball Player',
-        image: avatarImage4,
       },
     },
   ],
@@ -120,15 +109,6 @@ export function Testimonials() {
                             {testimonial.author.role}
                           </div>
                         </div>
-                        {/* <div className="overflow-hidden rounded-full bg-slate-50">
-                          <Image
-                            className="h-14 w-14 object-cover"
-                            src={testimonial.author.image}
-                            alt=""
-                            width={56}
-                            height={56}
-                          />
-                        </div> */}
                       </figcaption>
                     </figure>
                   </li>
