@@ -17,23 +17,23 @@ export function Hero() {
     return () => clearInterval(intervalId); // Cleanup the interval on component unmount
   }, [images.length]);
   return (
-    <div className="relative bg-white h-[60vh] md:h-[90vh]">
+    <div className="relative bg-white h-[85vh]">
       <div className="h-screen absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-[90%] h-full overflow-hidden rounded-br-custom">
+        <div className="absolute top-0 left-0 w-full sm:w-[90%] h-full overflow-hidden rounded-none sm:rounded-br-custom">
           <Image
             src={images[currentImage]}
             fill
             quality={100}
             alt="Hero"
-            className="absolute object-cover w-full h-full rounded-br-custom"
+            className="absolute object-cover w-full h-full rounded-none sm:rounded-br-custom"
           />
-          <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 rounded-br-custom"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 rounded-none sm:rounded-br-custom"></div>
         </div>
       </div>
 
       <Container className="pb-16 text-center z-20 relative pt-32">
         <div className="flex flex-1 flex-col">
-          <h1 className="text-left font-display text-7xl font-medium tracking-tight text-white sm:text-7xl">
+          <h1 className="text-left font-display text-6xl font-medium tracking-tight text-white sm:text-7xl">
             First Triumph
           </h1>
           <h1 className="text-left font-display text-5xl font-medium tracking-tight text-white sm:text-7xl">
