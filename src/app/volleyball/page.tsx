@@ -5,11 +5,11 @@ import Coaches from '@/components/Coaches';
 import TeamCalendar from '@/components/WomensCalendar';
 import { Button } from '@/components/Button';
 import cta5 from '@/images/cta5.png';
-import volleyball7 from '@/images/volleyball7.webp';
 import volleyball3 from '@/images/volleyball3.jpeg';
 import volleyball4 from '@/images/volleyball4.jpeg';
 import volleyball5 from '@/images/volleyball5.webp';
 import volleyball6 from '@/images/volleyball6.jpeg';
+import volleyball7 from '@/images/volleyball7.webp';
 
 const dates = [
   { date: 'June 25', groups: ['10', '11', '12', '13', '14'] },
