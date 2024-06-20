@@ -19,15 +19,15 @@ export function Hero() {
   return (
     <div className="relative bg-white h-[85vh]">
       <div className="h-screen absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-full sm:w-[90%] h-full overflow-hidden rounded-none sm:rounded-br-custom">
+        <div className="absolute top-0 left-0 w-[95%] sm:w-[90%] h-full overflow-hidden rounded-br-custom">
           <Image
             src={images[currentImage]}
             fill
             quality={100}
             alt="Hero"
-            className="absolute object-cover w-full h-full rounded-none sm:rounded-br-custom"
+            className="absolute object-cover w-full h-full rounded-br-custom"
           />
-          <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 rounded-none sm:rounded-br-custom"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 rounded-br-custom"></div>
         </div>
       </div>
 

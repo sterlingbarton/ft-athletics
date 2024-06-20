@@ -1,18 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import bball from '@/images/bball-1.jpeg';
-import bball2 from '@/images/bball-2.jpeg';
-import womensTeam from '@/images/womensteam.jpeg';
-import womens from '@/images/womens.jpeg';
-import womensHero from '@/images/womenshero.webp';
-import mens from '@/images/mens.webp';
-import basketballMens from '@/images/basketballmens.webp';
-import actionShot from '@/images/action-shot.jpeg';
-import floater from '@/images/floater.jpeg';
-import bballMens from '@/images/bballmens.jpeg';
+import volleyball3 from '@/images/volleyball3.jpeg';
+import volleyball4 from '@/images/volleyball4.jpeg';
+import volleyball5 from '@/images/volleyball5.webp';
+import volleyball6 from '@/images/volleyball6.jpeg';
+import volleyball7 from '@/images/volleyball7.webp';
+import mensvball from '@/images/mensvball.webp';
+import mensvolleyball from '@/images/mensvolleyball.jpeg';
+import vballmens from '@/images/vballmens.jpeg';
+import volleyballmens from '@/images/volleyballmens.jpeg';
+import volleymens from '@/images/volleymens.jpeg';
 import { Button } from '@/components/Button';
 
-export default function BBallHero({ selected }: { selected: String }) {
+export default function VBallHero({ selected }: { selected: String }) {
   return (
     <div className="relative isolate -z-10">
       <svg
@@ -64,7 +64,7 @@ export default function BBallHero({ selected }: { selected: String }) {
                 First Triumph Athletics
               </h1>
               <h2 className="relative mt-6 text-4xl font-bold leading-8 text-gray-600 sm:max-w-md lg:max-w-none xl:text-5xl">
-                {`${selected}'s Basketball Team`}
+                {`${selected}'s Volleyball Team`}
               </h2>
               <Button
                 href="/"
@@ -79,8 +79,8 @@ export default function BBallHero({ selected }: { selected: String }) {
               <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                 <div className="relative">
                   <img
-                    src={selected === 'Women' ? bball.src : basketballMens.src}
-                    alt="Team playing basketball"
+                    src={selected === 'Women' ? volleyball7.src : mensvball.src}
+                    alt="Team playing volleyball"
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                   />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
@@ -89,16 +89,22 @@ export default function BBallHero({ selected }: { selected: String }) {
               <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                 <div className="relative">
                   <img
-                    src={selected === 'Women' ? bball2.src : mens.src}
-                    alt="Team playing basketball"
+                    src={
+                      selected === 'Women'
+                        ? volleyball4.src
+                        : mensvolleyball.src
+                    }
+                    alt="Team playing volleyball"
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                   />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                 </div>
                 <div className="relative">
                   <img
-                    src={selected === 'Women' ? womensTeam.src : actionShot.src}
-                    alt="Team playing basketball"
+                    src={
+                      selected === 'Women' ? volleyball6.src : volleymens.src
+                    }
+                    alt="Team playing volleyball"
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                   />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
@@ -107,16 +113,20 @@ export default function BBallHero({ selected }: { selected: String }) {
               <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                 <div className="relative">
                   <img
-                    src={selected === 'Women' ? womens.src : floater.src}
-                    alt="Team playing basketball"
+                    src={selected === 'Women' ? volleyball5.src : vballmens.src}
+                    alt="Team playing volleyball"
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                   />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                 </div>
                 <div className="relative">
                   <img
-                    src={selected === 'Women' ? womensHero.src : bballMens.src}
-                    alt="Team playing basketball"
+                    src={
+                      selected === 'Women'
+                        ? volleyball3.src
+                        : volleyballmens.src
+                    }
+                    alt="Team playing volleyball"
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                   />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
