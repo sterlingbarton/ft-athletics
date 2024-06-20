@@ -16,8 +16,8 @@ const headerNavigation = {
     { name: 'About Us', href: '/about' },
     { name: 'Volleyball', href: '/volleyball' },
     { name: 'Basketball', href: '/basketball' },
-    // { name: 'Cheer', href: '/cheer' },
-    // { name: 'Dance', href: '/dance' },
+    { name: 'Cheer', href: '/cheer' },
+    { name: 'Dance', href: '/dance' },
   ],
 };
 
