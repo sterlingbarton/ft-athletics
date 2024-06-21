@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { Popover, Transition } from '@headlessui/react';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import { Container } from '@/components/Container';
 import { Logo } from '@/components/Logo';
 import { NavLink } from '@/components/NavLink';
 import { Button } from '@/components/Button';
@@ -13,7 +12,7 @@ import { parseToRgb, getLuminance, rgb } from 'polished';
 
 const headerNavigation = {
   main: [
-    { name: 'About Us', href: '/about' },
+    { name: 'About', href: '/about' },
     { name: 'Volleyball', href: '/volleyball' },
     { name: 'Basketball', href: '/basketball' },
     { name: 'Cheer', href: '/cheer' },
@@ -96,7 +95,7 @@ function MobileNavigation() {
             as="div"
             className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5"
           >
-            <MobileNavLink href="/about">About Us</MobileNavLink>
+            <MobileNavLink href="/about">About</MobileNavLink>
             <MobileNavLink href="/volleyball">Volleyball</MobileNavLink>
             <MobileNavLink href="/basketball">Basketball</MobileNavLink>
             <MobileNavLink href="/cheer">Cheer</MobileNavLink>
@@ -163,7 +162,7 @@ export function Header() {
   return (
     <header
       className={clsx(
-        'fixed top-0 left-0 right-0 z-50 py-0 sm:mx-15 md:mx-20 lg:mx-40 xl:mx-60 transition-colors duration-300 md:rounded-br-3xl md:rounded-bl-3xl',
+        'fixed top-0 left-0 right-0 z-50 mx-auto py-0 w-4/5 lg:w-9/12 flex transition-colors duration-300 md:rounded-br-3xl md:rounded-bl-3xl',
         isDarkBg
           ? hasScrolled
             ? 'bg-white text-slate-900'
@@ -171,37 +170,37 @@ export function Header() {
           : 'bg-white text-slate-900'
       )}
     >
-      <Container>
-        <nav className="relative flex justify-between px-5 py-3">
-          <div className="flex items-center md:gap-x-12">
-            <Link href="/" aria-label="Home">
-              <Logo className="h-10 w-auto" />
-            </Link>
-            <div className="hidden md:flex md:gap-x-6 align-baseline">
-              {headerNavigation.main.map((item) => (
-                <div key={item.name}>
-                  <NavLink href={item.href}>{item.name}</NavLink>
-                </div>
-              ))}
+      {/* <Container className=''> */}
+      <nav className="relative flex justify-between mx-auto px-5 py-3 w-11/12">
+        <div className="flex items-center md:gap-x-12">
+          <Link href="/" aria-label="Home">
+            <Logo className="h-10 w-auto" />
+          </Link>
+          <div className="hidden md:flex md:gap-x-6 align-baseline">
+            {headerNavigation.main.map((item) => (
+              <div key={item.name}>
+                <NavLink href={item.href}>{item.name}</NavLink>
+              </div>
+            ))}
+          </div>
+        </div>
+        {!isContactPage && (
+          <div className="flex items-center gap-x-5 md:gap-x-8">
+            <Button
+              href="/contact"
+              variant="solid"
+              color="orange"
+              className="-mr-4"
+            >
+              Contact
+            </Button>
+            <div className="-mr-1 md:hidden">
+              <MobileNavigation />
             </div>
           </div>
-          {!isContactPage && (
-            <div className="flex items-center gap-x-5 md:gap-x-8">
-              <Button
-                href="/contact"
-                variant="solid"
-                color="orange"
-                className="-mr-4"
-              >
-                Contact
-              </Button>
-              <div className="-mr-1 md:hidden">
-                <MobileNavigation />
-              </div>
-            </div>
-          )}
-        </nav>
-      </Container>
+        )}
+      </nav>
+      {/* </Container> */}
     </header>
   );
 }
