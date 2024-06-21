@@ -33,7 +33,7 @@ export function PrimaryFeatures() {
     <section
       id="features"
       aria-label="Sports we offer"
-      className="relative overflow-hidden bg-white pt-24 sm:pt-28"
+      className="relative overflow-hidden bg-white mt-48"
     >
       <Container className="relative">
         <div>

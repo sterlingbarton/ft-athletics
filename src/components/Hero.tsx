@@ -19,7 +19,7 @@ export function Hero() {
   return (
     <div className="relative bg-white h-[85vh]">
       <div className="h-screen absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 w-[95%] sm:w-[90%] h-full overflow-hidden rounded-br-custom">
+        <div className="absolute top-0 left-0 w-[95%] md:w-[90%] h-[90%] overflow-hidden rounded-br-custom">
           <Image
             src={images[currentImage]}
             fill
