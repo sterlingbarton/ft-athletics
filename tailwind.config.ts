@@ -35,7 +35,7 @@ const config: Config = {
         },
       },
       borderRadius: {
-        'custom-br': '50%',
+        'custom-br-custom': '20rem',
       },
     },
   },
@@ -51,7 +51,7 @@ const config: Config = {
     }) {
       const newUtilities = {
         '.rounded-br-custom': {
-          borderBottomRightRadius: '50%',
+          borderBottomRightRadius: '20rem',
         },
       };
       addUtilities(newUtilities, ['responsive', 'hover']);

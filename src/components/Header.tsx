@@ -162,7 +162,7 @@ export function Header() {
   return (
     <header
       className={clsx(
-        'fixed top-0 left-0 right-0 z-50 mx-auto py-0 w-4/5 lg:w-9/12 flex transition-colors duration-300 md:rounded-br-3xl md:rounded-bl-3xl',
+        'fixed top-0 left-0 right-0 z-50 mx-auto py-0 md:w-4/5 lg:w-9/12 flex transition-colors duration-300 md:rounded-br-3xl md:rounded-bl-3xl',
         isDarkBg
           ? hasScrolled
             ? 'bg-white text-slate-900'
